@@ -2,7 +2,8 @@
 
 There is a list of reservations in JSON saved in file reservations.json. The content of the file is:
 
-```[  
+```json
+[  
    {  
       "reservationId":123456,
       "guest":"Petr Klas",
@@ -31,14 +32,16 @@ There is a list of reservations in JSON saved in file reservations.json. The con
       "currency":"CZK",
       "alreadyPaid":"500" 
    }
-]```
+]
+```
 
 Kde "type" je typ rezervace (day je rezervace na dny a hour je rezervace na hodiny) "prices" jsou ceny rezervace za každou noc / hodinu zvlášť. 
 "alreadyPaid" je částka, která již byla klientem uhrazena
 
 
 Vaším úkolem bude napsat co nejlépe objektově funkcionalitu, která soubor přečte, zpracuje a vytvoří JSON soubor "reservations_transformed.json" s výstupem pro všechny rezervace v tomto formátu:
-```[  
+```json
+[  
    {  
       "reservationId":123456,
       "firstName":"Petr",
@@ -81,7 +84,8 @@ Vaším úkolem bude napsat co nejlépe objektově funkcionalitu, která soubor 
          }
       ]
    }
-]```
+]
+```
 
 To znamená, že z denních / hodinových cen si vypočte datum OD a DO (datum DO je vždy o 1 větší než poslední denní cena v případě dnů) a počet nocí / hodin. A ze sumy denních cen a zaplacené částky udělá částku k zaplacení, která bude vždy v CZK i EUR měně. Do požadované měny přepočtěte částky kurzem 1 EUR = 26 CZK.
 
