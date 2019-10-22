@@ -35,11 +35,16 @@ There is a list of reservations in JSON saved in file reservations.json. The con
 ]
 ```
 
-Kde "type" je typ rezervace (day je rezervace na dny a hour je rezervace na hodiny) "prices" jsou ceny rezervace za každou noc / hodinu zvlášť. 
-"alreadyPaid" je částka, která již byla klientem uhrazena
+* type - type of the reservation (day means reservation booked on multiple days,  hour  means reservation booked for multiple hours) 
+* prices - price for each night / hour. 
+* alreadyPaid - already paid amount
 
+# Your task
 
-Vaším úkolem bude napsat co nejlépe objektově funkcionalitu, která soubor přečte, zpracuje a vytvoří JSON soubor "reservations_transformed.json" s výstupem pro všechny rezervace v tomto formátu:
+Your task is to write the code in OOP PHP that read the file and it's content, transform the JSON in new structure and store transformed JSON into the file called "/tmp/reservations_transformed.json"
+
+The output format should be as follow:
+
 ```json
 [  
    {  
@@ -87,14 +92,16 @@ Vaším úkolem bude napsat co nejlépe objektově funkcionalitu, která soubor 
 ]
 ```
 
-To znamená, že z denních / hodinových cen si vypočte datum OD a DO (datum DO je vždy o 1 větší než poslední denní cena v případě dnů) a počet nocí / hodin. A ze sumy denních cen a zaplacené částky udělá částku k zaplacení, která bude vždy v CZK i EUR měně. Do požadované měny přepočtěte částky kurzem 1 EUR = 26 CZK.
+* prices for each day / hour should be tranformed into date / time range (from - to). In case of days, there should be always +1 day, because the guest stays four nights, which is equal to 5 days.
+* you need to sum the daily / hourly prices and substract the already paid amount. This amount "priceToBePaid" needs to be defined always in CZK and EUR currency. Exchange rate is 1 EUR = 26 CZK.
 
-V uvedeném případě je tedy priceToBePaid vypočtena jako:
 
+
+"priceToBePaid" calculation example for the first reservation:
+
+```
 25,3 * 4  = 101,2 - 50 = 51,2 EUR
-
 51,2 EUR * 26 = 1331,2 Kč.
+```
 
-Tento JSON výstup navíc uložte do souboru s názvem reservations.json do adresáře /tmp.
-
-Pokuste se celé řešení napsat co nejlépe objektově (využitím interface, abstract classed, traits, ...), myslete i na ošetření různých chybových stavů.
+Use plain OOP PHP if possible. User interfaces, abstract classes, traits wherever it makes a sense to you. Do not use any framework. Don't forget to treat the error states and incorrect input (e.g. file not exists, malformed json, empty price, etc.)
