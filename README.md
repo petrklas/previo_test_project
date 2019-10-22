@@ -35,7 +35,7 @@ There is a list of reservations in JSON saved in file reservations.json. The con
 ]
 ```
 
-* type - type of the reservation (day means reservation booked on multiple days,  hour  means reservation booked for multiple hours) 
+* type - type of the reservation (day means reservation booked for multiple days,  hour  means reservation booked for multiple hours) 
 * prices - price for each night / hour. 
 * alreadyPaid - already paid amount
 
@@ -43,7 +43,7 @@ There is a list of reservations in JSON saved in file reservations.json. The con
 
 Your task is to write the code in OOP PHP that read the file and it's content, transform the JSON in new structure and store transformed JSON into the file called "/tmp/reservations_transformed.json"
 
-The output format should be as follow:
+The output format should be as follows:
 
 ```json
 [  
