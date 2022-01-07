@@ -104,6 +104,6 @@ The output format should be as follows:
 51,2 EUR * 26 = 1331,2 Kč.
 ```
 
-Use plain OOP PHP, if possible. Use interfaces, abstract classes, traits wherever it makes a sense to you. Don't forget to treat the error states and incorrect inputs (e.g. file not exists, malformed json, empty price, etc.).
+Use plain OOP PHP. Use interfaces, abstract classes, traits wherever it makes a sense to you. Consider using some design patterns e.g. SOLID. Don't forget to treat the error states and incorrect inputs (e.g. file not exists, malformed json, empty price, etc.).
 
 Please send the complete task to my e-mail address: petr.klas@previo.cz
