@@ -60,7 +60,7 @@ The output format should be as follows:
       "priceToBePaid":[  
          {  
             "currency":"CZK",
-            "price":"14331.2"
+            "price":"1331.2"
          },
          {  
             "currency":"EUR",
